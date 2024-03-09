@@ -1,0 +1,36 @@
+---
+import { Image } from "astro:assets";
+const { title, description, image, primaryColor } = Astro.props;
+---
+
+<div class={`card top-border-${primaryColor}`}>
+  <h2>{title}</h2>
+  <p>{description}</p>
+  <Image src={image.url} alt={image.alt} />
+
+  <style>
+    .card {
+      display: flex;
+      flex-direction: column;
+      gap: .5rem;
+      /* border: 0.5px solid; */
+      padding-inline: 1rem;
+      padding-block: 1.5rem;
+      box-shadow: 0 10px 10px 5px hsl(234, 12%, 34%, 0.1);
+      border-radius: 4px;
+      /* box-shadow: 0 10px 10px 5px hsl(229, 6%, 66%, 0.1); */
+      /* box-shadow: 0 10px 10px 5px hsl(212, 86%, 64%, 0.1); */
+    }
+
+    .card h2 {
+      font-weight: var(--fw-sb);
+      color: var(--clr-neutral-very-Dark-blue);
+      font-size: var(--fs-2xl);
+    }
+
+    .card img {
+      margin-left: auto;
+      margin-top: 1.5rem;
+    }
+  </style>
+</div>
